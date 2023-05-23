@@ -17,4 +17,8 @@ export class PodService {
   public getPod(): Observable<Pod> {
     return this.http.get<Pod>(`${this.apiUrl}${this.apiKey}`)
   }
+
+  public getPodDate(date: string): Observable<Pod> {
+    return this.http.get<Pod>(`${this.apiUrl}${this.apiKey}&date=${date}`)
+  }
 }

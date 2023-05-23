@@ -1,3 +1,6 @@
-<h2>{{ pod.title }}</h2>
-<img [src]="pod.url" />
-<p>{{pod.explanation}}</p>
+<div *ngIf="!loading && pod">
+  <h2>{{ pod.title }}</h2>
+  <img [src]="pod.url" />
+  <p>{{pod.explanation}}</p>
+</div>
+<app-loading *ngIf="loading"></app-loading>
