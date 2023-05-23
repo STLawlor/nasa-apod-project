@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-date-picker',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./date-picker.component.scss']
 })
 export class DatePickerComponent {
-  public selectedDate: string | undefined;
+  @Output() public dateSelected = new EventEmitter<any>();
+
+  public onDateSelect(date: NgbDate) {
+    this.dateSelected.emit(date);
+  }
 }

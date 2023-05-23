@@ -11,6 +11,8 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { HomeComponent } from './components/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/header/header.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HeaderComponent } from './components/header/header.component';
     FooterComponent,
     DatePickerComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoadingComponent,
+    DateSelectorComponent
   ],
   imports: [
     BrowserModule,

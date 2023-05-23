@@ -1,2 +1,20 @@
-<p>date-picker works!</p>
-<app-pic-of-day *ngIf="selectedDate" [date]="selectedDate"></app-pic-of-day>
+<form>
+  <div class="form-group">
+    <input 
+      #d="ngbDatepicker"
+      ngbDatepicker
+      class="form-control"
+      placeholder="Select date..."
+      disabled
+      [footerTemplate]="footerTemplate"
+      (dateSelect)="onDateSelect($event)"
+      />
+    <button class="btn btn-outline-secondary" (click)="d.open()">Select Date</button>
+    <button class="btn btn-outline-secondary" (click)="d.close()">Close</button>
+  </div>
+</form>
+
+<ng-template #footerTemplate>
+	<hr class="my-0" />
+	<button class="btn btn-secondary btn-sm m-2 float-end" (click)="d.close()">Close</button>
+</ng-template>

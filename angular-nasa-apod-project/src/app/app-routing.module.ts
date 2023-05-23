@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PicOfDayComponent } from './components/pic-of-day/pic-of-day.component';
-import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 
 const routes: Routes = [
   { path: '', component: PicOfDayComponent, pathMatch: 'full' },
-  { path: 'date-picker', component: DatePickerComponent }
+  { path: 'date-selector', component: DateSelectorComponent }
 ];
 
 @NgModule({
