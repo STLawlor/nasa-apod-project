@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PicOfDayComponent,
     FooterComponent,
     DatePickerComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
