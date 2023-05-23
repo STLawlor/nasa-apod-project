@@ -6,11 +6,11 @@
       class="form-control"
       placeholder="Select date..."
       disabled
+      [startDate]="startDate"
       [footerTemplate]="footerTemplate"
       (dateSelect)="onDateSelect($event)"
       />
     <button class="btn btn-outline-secondary" (click)="d.open()">Select Date</button>
-    <button class="btn btn-outline-secondary" (click)="d.close()">Close</button>
   </div>
 </form>
 
