@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./date-picker.component.scss']
 })
 export class DatePickerComponent {
-
+  public selectedDate: string | undefined;
 }
