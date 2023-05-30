@@ -1,6 +1,9 @@
-<h2>Date Selector</h2>
-<p>Select any date from June 16th 1995</p>
-
-<app-date-picker (dateSelected)="onDateSelected($event)"></app-date-picker>
+<section>
+  <header>
+    <h2>Date Selector</h2>
+    <p>Select any date from June 16th 1995</p>
+  </header>
+  <app-date-picker (dateSelected)="onDateSelected($event)"></app-date-picker>
+</section>
 
 <app-pic-of-day *ngIf="selectedDate" [date]="selectedDate"></app-pic-of-day>
