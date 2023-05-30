@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
-import { NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NgbDate, NgbDateStruct  } from '@ng-bootstrap/ng-bootstrap';
 
-import { InputStartDate } from 'src/app/models/input-start-date';
 
 @Component({
   selector: 'app-date-picker',
@@ -10,8 +9,7 @@ import { InputStartDate } from 'src/app/models/input-start-date';
 })
 export class DatePickerComponent {
   @Output() public dateSelected = new EventEmitter<any>();
-  public startDate = new InputStartDate(1995, 6, 16)
-
+  public minDate: NgbDateStruct = { day: 16, month: 6, year: 1995 }
 
   public onDateSelect(date: NgbDate): void {
     this.dateSelected.emit(date);

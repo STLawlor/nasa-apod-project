@@ -1,17 +1,18 @@
-<form>
-  <div class="form-group">
-    <input 
-      #d="ngbDatepicker"
-      ngbDatepicker
-      class="form-control"
-      placeholder="Select date..."
-      disabled
-      [startDate]="startDate"
-      [footerTemplate]="footerTemplate"
-      (dateSelect)="onDateSelect($event)"
-      />
-    <button class="btn btn-outline-secondary" (click)="d.open()">Select Date</button>
-  </div>
+<form class="row row-cols-sm-auto">
+	<div class="col-12">
+		<div class="input-group">
+			<input
+				class="form-control"
+				placeholder="Select date..."
+				ngbDatepicker
+				#d="ngbDatepicker"
+        [footerTemplate]="footerTemplate"
+        [minDate]="minDate"
+        (dateSelect)="onDateSelect($event)"
+			/>
+			<button class="btn btn-outline-secondary" (click)="d.open()" type="button">Select Date</button>
+		</div>
+	</div>
 </form>
 
 <ng-template #footerTemplate>
