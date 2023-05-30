@@ -1,2 +1,65 @@
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+// @import "~bootstrap/dist/css/bootstrap.css";
+
+// Fonts 
+
+@font-face {
+  font-family: oxaniumLight;
+  src: url("assets/fonts/oxanium/Oxanium-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: oxaniumMedium;
+  src: url("assets/fonts/oxanium/Oxanium-Medium.ttf");
+}
+
+@font-face {
+  font-family: oxaniumBold;
+  src: url("assets/fonts/oxanium/Oxanium-Bold.ttf");
+}
+
+// Colours
+
+$darkColour: #11151C;
+$darkNavyColour: #212D40;
+$navyColour: #364156;
+$lightNavyColour: #5b667a;
+$orangeColour: #D66853;
+$greenColour: #25A18E;
+$brightGreenColour: #9FFFCB;
+
+// Global styling
+
+* {
+  font-family: oxaniumLight;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  color: $lightNavyColour;
+  background-color: $darkColour;
+}
+
+a {
+  text-decoration: none;
+  color: $lightNavyColour;
+}
+
+img {
+  border-radius: 2px;
+}
+
+// Shared classes
+
+.text-border {
+  border: 1px solid $orangeColour;
+  border-radius: 10px;
+}
+
