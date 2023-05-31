@@ -10,6 +10,11 @@ $orange: #D66853;
 $green: #25A18E;
 $brightGreen: #9FFFCB;
 
+$theme-colors: (
+  primary: $orange,
+  secondary: $green
+);
+
 /* -------end customization-------- */ 
 
 /* Importing Bootstrap SCSS file. */
@@ -55,6 +60,10 @@ a {
 }
 
 a:hover {
+  color: $green;
+}
+
+h1 {
   color: $green;
 }
 
