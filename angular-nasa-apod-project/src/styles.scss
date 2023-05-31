@@ -1,8 +1,19 @@
+/* -------begin customization-------- */   
+
+// Colours
+
+$dark: #11151C;
+$darkNavy: #212D40;
+$navy: #364156;
+$lightNavy: #5b667a;
+$orange: #D66853;
+$green: #25A18E;
+$brightGreen: #9FFFCB;
+
+/* -------end customization-------- */ 
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
-
-/* You can add global styles to this file, and also import other style files */
-// @import "~bootstrap/dist/css/bootstrap.css";
 
 // Fonts 
 
@@ -21,16 +32,6 @@
   src: url("assets/fonts/oxanium/Oxanium-Bold.ttf");
 }
 
-// Colours
-
-$darkColour: #11151C;
-$darkNavyColour: #212D40;
-$navyColour: #364156;
-$lightNavyColour: #5b667a;
-$orangeColour: #D66853;
-$greenColour: #25A18E;
-$brightGreenColour: #9FFFCB;
-
 // Global styling
 
 * {
@@ -43,23 +44,31 @@ html, body {
 }
 
 body {
-  color: $lightNavyColour;
-  background-color: $darkColour;
+  color: $lightNavy;
+  background-color: $dark;
+  padding: 20px;
 }
 
 a {
   text-decoration: none;
-  color: $lightNavyColour;
+  color: $lightNavy;
+}
+
+a:hover {
+  color: $green;
 }
 
 img {
+  border: 1px solid $orange;
   border-radius: 2px;
+  max-width: 90vw;
 }
+
 
 // Shared classes
 
 .text-border {
-  border: 1px solid $orangeColour;
+  border: 1px solid $orange;
   border-radius: 10px;
 }
 
