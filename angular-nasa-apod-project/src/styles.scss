@@ -64,7 +64,7 @@ a:hover {
 }
 
 h1 {
-  color: $green;
+  color: $orange;
 }
 
 img {
@@ -75,6 +75,10 @@ img {
 
 
 // Shared classes
+
+.active-link {
+  color: $green;
+}
 
 .text-border {
   border: 1px solid $orange;
