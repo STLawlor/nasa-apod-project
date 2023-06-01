@@ -8,7 +8,7 @@ $navy: #364156;
 $lightNavy: #5b667a;
 $orange: #D66853;
 $green: #25A18E;
-$brightGreen: #9FFFCB;
+$lightGreen: #9FFFCB;
 
 $theme-colors: (
   primary: $orange,
@@ -56,7 +56,7 @@ body {
 
 a {
   text-decoration: none;
-  color: $lightNavy;
+  color: $orange;
 }
 
 a:hover {
@@ -64,7 +64,7 @@ a:hover {
 }
 
 h1 {
-  color: $orange;
+  color: $green;
 }
 
 img {
