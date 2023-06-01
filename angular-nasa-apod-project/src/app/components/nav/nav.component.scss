@@ -2,3 +2,9 @@ nav {
   min-width: 90vw;
   font-size: large;
 }
+
+@media screen and (max-width: 430px) {
+  nav {
+    font-size: medium;
+  }
+}
