@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
 
@@ -14,9 +15,13 @@ export class PicOfDayComponent implements OnInit, OnChanges, OnDestroy {
   @Input() date: string | undefined;
   public pod!: Pod;
   public loading = false;
+  public safePodUrl!: SafeUrl;
   private subscriptions: Subscription[] = [];
 
-  constructor(private podService: PodService) {}
+  constructor(
+    private readonly podService: PodService,
+    private readonly sanitizer: DomSanitizer
+    ) {}
 
   public ngOnInit(): void {
     this.getPod();
@@ -32,12 +37,14 @@ export class PicOfDayComponent implements OnInit, OnChanges, OnDestroy {
     if (!this.date) {
       podSubscription = this.podService.getPod().subscribe((pod) => {
         this.pod = pod;
+        this.getSanitizedUrl()
         this.loading = false;
       })
       this.subscriptions.push(podSubscription);
     } else {
       podSubscription = this.podService.getPodDate(this.date).subscribe((pod) => {
         this.pod = pod;
+        this.getSanitizedUrl()
         this.loading = false;
       })
     }
@@ -47,5 +54,11 @@ export class PicOfDayComponent implements OnInit, OnChanges, OnDestroy {
 
   public ngOnDestroy(): void {
     this.subscriptions.forEach((s) => s.unsubscribe());
+  }
+
+  private getSanitizedUrl(): void {
+    this.safePodUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      this.pod.url
+    );
   }
 }
