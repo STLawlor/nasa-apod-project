@@ -3,4 +3,11 @@
 p {
   font-family: oxaniumBold;
   color: $orange;
+  width: 45vw;
+}
+
+@media screen and (max-width: 700px) {
+  p {
+    width: 70vw;
+  }
 }

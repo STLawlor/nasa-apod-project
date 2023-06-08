@@ -4,6 +4,16 @@
   color: $orange;
 }
 
+section {
+  width: 45vw;
+}
+
 h5 {
   font-family: oxaniumBold;
+}
+
+@media screen and (max-width: 700px) {
+  section {
+    width: 70vw;
+  }
 }
