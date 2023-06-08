@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/header/header.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DateSelectorComponent } from './components/date-selector/date-selector.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DateSelectorComponent } from './components/date-selector/date-selector.
     HomeComponent,
     HeaderComponent,
     LoadingComponent,
-    DateSelectorComponent
+    DateSelectorComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

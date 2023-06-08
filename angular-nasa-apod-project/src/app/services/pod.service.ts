@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { Pod } from '../models/pod';
 
@@ -9,16 +8,13 @@ import { Pod } from '../models/pod';
   providedIn: 'root'
 })
 export class PodService {
-  apiUrl = 'https://api.nasa.gov/planetary/apod?';
-  apiKey = 'api_key=7DTscVJtTKShhiRDXVwz028It1M4fp2SaNYRaqeD';
+  private apiUrl = 'https://api.nasa.gov/planetary/apod?';
+  private apiKey = 'api_key=7DTscVJtTKShhiRDXVwz028It1M4fp2SaNYRaqeD';
 
   constructor(private http: HttpClient) { }
 
-  public getPod(): Observable<Pod> {
-    return this.http.get<Pod>(`${this.apiUrl}${this.apiKey}`)
-  }
-
-  public getPodDate(date: string): Observable<Pod> {
-    return this.http.get<Pod>(`${this.apiUrl}${this.apiKey}&date=${date}`)
+  public getPod(date: string | undefined): Observable<Pod> {
+    const url = `${this.apiUrl}${this.apiKey}`;
+    return date ? this.http.get<Pod>(`${url}`) : this.http.get<Pod>(`${url}&date=${date}`)
   }
 }

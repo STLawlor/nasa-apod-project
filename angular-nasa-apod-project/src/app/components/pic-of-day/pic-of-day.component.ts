@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
-
 
 import { Pod } from 'src/app/models/pod';
 import { PodService } from 'src/app/services/pod.service';
@@ -9,19 +9,20 @@ import { PodService } from 'src/app/services/pod.service';
 @Component({
   selector: 'app-pic-of-day',
   templateUrl: './pic-of-day.component.html',
-  styleUrls: ['./pic-of-day.component.scss']
+  styleUrls: ['./pic-of-day.component.scss'],
 })
 export class PicOfDayComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() date: string | undefined;
-  public pod!: Pod;
+  @Input() date?: string;
   public loading = false;
+  public pod?: Pod;
+  public error?: HttpErrorResponse;
   public safePodUrl!: SafeUrl;
   private subscriptions: Subscription[] = [];
 
   constructor(
     private readonly podService: PodService,
     private readonly sanitizer: DomSanitizer
-    ) {}
+  ) {}
 
   public ngOnInit(): void {
     this.getPod();
@@ -33,32 +34,28 @@ export class PicOfDayComponent implements OnInit, OnChanges, OnDestroy {
 
   private getPod() {
     this.loading = true;
-    let podSubscription;
-    if (!this.date) {
-      podSubscription = this.podService.getPod().subscribe((pod) => {
+    let subscription = this.podService.getPod(this.date).subscribe(
+      (pod) => {
         this.pod = pod;
-        this.getSanitizedUrl()
+        this.getSanitizedUrl();
         this.loading = false;
-      })
-      this.subscriptions.push(podSubscription);
-    } else {
-      podSubscription = this.podService.getPodDate(this.date).subscribe((pod) => {
-        this.pod = pod;
-        this.getSanitizedUrl()
+      },
+      (error) => {
         this.loading = false;
-      })
-    }
+        this.error = error;
+      }
+    );
 
-    this.subscriptions.push(podSubscription);
-  }
-
-  public ngOnDestroy(): void {
-    this.subscriptions.forEach((s) => s.unsubscribe());
+    this.subscriptions.push(subscription);
   }
 
   private getSanitizedUrl(): void {
     this.safePodUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.pod.url
+      this.pod!.url
     );
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach((s) => s.unsubscribe());
   }
 }
